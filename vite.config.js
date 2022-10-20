@@ -19,7 +19,7 @@ export default defineConfig({
       proxy: {
         // https://cn.vitejs.dev/config/#server-proxy
         '/dev-api': {
-          target: 'http://192.168.50.29:8080', // 修改为本地服务器 api 地址
+          target: '', // 修改为本地服务器 api 地址
           changeOrigin: true,
           rewrite: (p) => p.replace(/^\/dev-api/, ''),
         },
