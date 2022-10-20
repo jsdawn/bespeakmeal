@@ -1,0 +1,36 @@
+/*flex*/
+.flex {display: flex;}
+.flex-grid {display: flex; justify-content: center; align-items: center;}
+
+.flex--center {justify-content: center;}
+.flex--right {justify-content: flex-end;}
+.flex--between {justify-content: space-between;}
+.flex--around {justify-content: space-around;}
+.flex--evenly {justify-content: space-evenly;}
+.flex--middle {align-items: center;}
+.flex--bottom {align-items: flex-end;}
+.flex--stretch {align-items: stretch;}
+.flex--baseline {align-items: baseline;}
+.flex--reverse {flex-direction: row-reverse;}
+.flex--wrap {
+  flex-wrap: wrap;
+  &.flex--center {align-content: center;}
+  &.flex--right {align-content: flex-end;}
+  &.flex--between {align-content: space-between;}
+  &.flex--around {align-content: space-around;}
+}
+.flex--col {
+  flex-direction: column;
+  &.flex--reverse {flex-direction: column-reverse;}
+}
+// 神奇的 min-width，单独一个类名没效果，一定要挤一起
+// 用于 felx: 1 元素正确获取宽度，以免被内容撑开
+.flex-item {flex: auto; min-width: 0;}
+.flex-item--none {flex: none;}
+.flex-item--min {flex-shrink: 0;}
+.flex-item--max {flex-grow: 0; min-width: 0;}
+
+.flex-item--start {align-self: flex-start;}
+.flex-item--stretch {align-self: stretch;}
+.flex-item--end {align-self: flex-end;}
+.flex-item--right {justify-self: flex-end;}

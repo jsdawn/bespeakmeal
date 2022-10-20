@@ -1,0 +1,23 @@
+/*
+ * @Author: jsdawn
+ * @Date: 2022-10-17 18:33:34
+ * @LastEditTime: 2022-10-20 17:38:55
+ * @Description: react-vant style
+ */
+@import './var.scss';
+
+:root {
+  --rv-primary-color: #493dff;
+}
+
+// tag
+.rv-tag + .rv-tag {
+  margin-left: 5px;
+}
+
+// product-card
+.rv-product-card__title {
+  max-height: 36px;
+  font-size: 14px;
+  line-height: 18px;
+}

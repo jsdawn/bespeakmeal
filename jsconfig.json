@@ -1,0 +1,11 @@
+{
+  "exclude": ["node_modules", "dist"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react",
+    "allowSyntheticDefaultImports": false,
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
