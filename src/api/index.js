@@ -1,7 +1,7 @@
 /*
  * @Author: jsdawn
  * @Date: 2022-10-20 14:11:53
- * @LastEditTime: 2022-10-20 17:33:05
+ * @LastEditTime: 2022-10-21 18:56:27
  * @Description: API 接口
  */
 
@@ -37,7 +37,7 @@ export function listMallGoods() {
       updated: null,
     },
   ];
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     resolve({ rows });
   });
 }
@@ -45,7 +45,7 @@ export function listMallGoods() {
 // 提交订单
 export function postMallOrder(data) {
   const addOrder = useOrderStore.getState().addOrder;
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const order = addOrder(data);
     resolve({ data: { no: order.no } });
   });
@@ -54,7 +54,7 @@ export function postMallOrder(data) {
 // 获取订单列表
 export function listMallOrder(data) {
   const rows = useOrderStore.getState().orderList;
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     resolve({ rows });
   });
 }
@@ -63,7 +63,7 @@ export function listMallOrder(data) {
 export function getMallOrder(orderNo) {
   const rows = useOrderStore.getState().orderList;
   const order = rows.find((v) => v.no == orderNo);
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     resolve({ data: order });
   });
 }

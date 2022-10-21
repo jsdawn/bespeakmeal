@@ -9,7 +9,7 @@ import GoodsListItem from './GoodsListItem';
 
 function GoodsList() {
   const navigate = useNavigate();
-  const [list, setList] = useState(() => []);
+  const [list, setList] = useState([]);
   // 购物车列表
   const cartList = useCartStore((state) => state.cartList);
   const cartTotalCount = useCartStore((state) => state.cartTotalCount);
@@ -17,9 +17,7 @@ function GoodsList() {
   const cartCountMap = useCartStore((state) => state.cartCountMap);
 
   // 商品选购数量map
-  const countMap = useMemo(() => {
-    return cartCountMap();
-  }, [cartList]);
+  const countMap = useMemo(() => cartCountMap(), [cartList]);
 
   // 获取商品列表
   useEffect(() => {
