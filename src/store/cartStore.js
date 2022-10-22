@@ -1,7 +1,7 @@
 /*
  * @Author: jsdawn
  * @Date: 2022-10-17 19:40:46
- * @LastEditTime: 2022-10-20 17:15:13
+ * @LastEditTime: 2022-10-22 13:48:25
  * @Description: 购物车 store
  */
 
@@ -12,30 +12,25 @@ let store = (set, get) => ({
   cartList: [],
 
   cartTotalAmount: () => {
-    let total = 0;
-    get().cartList.forEach((item) => {
-      total += item.price * item.count;
-    });
-    return total;
+    return get().cartList.reduce((prev, curr) => {
+      return prev + curr.price * curr.count;
+    }, 0);
   },
 
   cartTotalCount: () => {
-    let total = 0;
-    get().cartList.forEach((item) => {
-      total += item.count;
-    });
-    return total;
+    return get().cartList.reduce((prev, curr) => {
+      return prev + curr.count;
+    }, 0);
   },
 
   cartCountMap: () => {
-    let countMap = {};
-    get().cartList.forEach((item) => {
-      if (countMap[item.id] == undefined) {
-        countMap[item.id] = 0;
+    return get().cartList.reduce((prev, curr) => {
+      if (prev[curr.id] == undefined) {
+        prev[curr.id] = 0;
       }
-      countMap[item.id] += item.count;
-    });
-    return countMap;
+      prev[curr.id] += curr.count;
+      return prev;
+    }, {});
   },
 
   /**

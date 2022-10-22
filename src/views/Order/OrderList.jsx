@@ -1,5 +1,5 @@
 import { listMallOrder } from '@/api';
-import FloatingHome from '@/components/FloatingHome';
+import FloatingAction from '@/components/FloatingAction';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Divider } from 'react-vant';
@@ -22,7 +22,7 @@ function OrderList() {
 
       {list.length == 0 && <Divider>暂无订单数据</Divider>}
 
-      <FloatingHome />
+      <FloatingAction />
     </div>
   );
 }

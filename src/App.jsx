@@ -1,13 +1,21 @@
-import { useRoutes } from 'react-router-dom';
-import routes from '@/router/routes';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from '@/router/Routes';
+import { Suspense } from 'react';
+import { Loading } from 'react-vant';
 
 function App() {
-  const RouterElement = useRoutes(routes);
-
   return (
-    <div id="App">
-      <RouterElement />
-    </div>
+    <BrowserRouter>
+      <Suspense
+        fallback={
+          <div className="flex flex--center p15">
+            <Loading type="ball" />
+          </div>
+        }
+      >
+        <Routes />
+      </Suspense>
+    </BrowserRouter>
   );
 }
 

@@ -1,6 +1,6 @@
 import { Card, Cell } from 'react-vant';
 import OrderGoodsItem from './OrderGoodsItem';
-import FloatingHome from '@/components/FloatingHome';
+import FloatingAction from '@/components/FloatingAction';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -101,7 +101,7 @@ function OrderDetail() {
         </Card.Body>
       </Card>
 
-      <FloatingHome />
+      <FloatingAction />
     </div>
   );
 }

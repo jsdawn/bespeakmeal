@@ -1,7 +1,7 @@
 /*
  * @Author: jsdawn
  * @Date: 2022-10-17 18:33:34
- * @LastEditTime: 2022-10-20 17:38:55
+ * @LastEditTime: 2022-10-22 13:13:55
  * @Description: react-vant style
  */
 @import './var.scss';
@@ -16,6 +16,9 @@
 }
 
 // product-card
+.rv-product-card {
+  background-color: transparent;
+}
 .rv-product-card__title {
   max-height: 36px;
   font-size: 14px;
