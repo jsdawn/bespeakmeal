@@ -1,7 +1,7 @@
 /*
  * @Author: jsdawn
  * @Date: 2022-10-19 16:00:40
- * @LastEditTime: 2022-10-20 17:18:47
+ * @LastEditTime: 2022-11-04 18:43:44
  * @Description: 模拟订单列表api (实际不需要该store)
  */
 
@@ -55,7 +55,7 @@ let store = (set, get) => ({
         payment_price: totalPrice,
       };
     }
-    set({ orderList: get().orderList.concat(order) });
+    set({ orderList: [].concat(order, get().orderList) });
     return order;
   },
 });

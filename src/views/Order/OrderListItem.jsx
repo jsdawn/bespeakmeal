@@ -11,7 +11,7 @@ function OrderListItem({ item }) {
   return (
     <Card className="mb15" round onClick={() => navigate('/order/' + item.no)}>
       <Card.Header className="block full-w font-md">
-        <span>盈科智谷分店</span>
+        <span>{item.shop?.name}</span>
         <span
           className={'fr font-reg ' + (isOk ? 'text-primary' : 'text-muted')}
         >

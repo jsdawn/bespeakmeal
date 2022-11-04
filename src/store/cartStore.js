@@ -1,7 +1,7 @@
 /*
  * @Author: jsdawn
  * @Date: 2022-10-17 19:40:46
- * @LastEditTime: 2022-10-22 13:48:25
+ * @LastEditTime: 2022-11-04 18:33:38
  * @Description: 购物车 store
  */
 
@@ -24,6 +24,7 @@ let store = (set, get) => ({
   },
 
   cartCountMap: () => {
+    console.log('dddd');
     return get().cartList.reduce((prev, curr) => {
       if (prev[curr.id] == undefined) {
         prev[curr.id] = 0;

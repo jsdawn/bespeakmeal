@@ -1,7 +1,7 @@
 import { listMallGoods } from '@/api';
 import { useCartStore } from '@/store/cartStore';
 import { useEffect } from 'react';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { SubmitBar, Badge, Button } from 'react-vant';
@@ -12,12 +12,15 @@ function GoodsList() {
   const [list, setList] = useState([]);
   // 购物车列表
   const cartList = useCartStore((state) => state.cartList);
-  const cartTotalCount = useCartStore((state) => state.cartTotalCount);
-  const cartTotalAmount = useCartStore((state) => state.cartTotalAmount);
-  const cartCountMap = useCartStore((state) => state.cartCountMap);
-
-  // 商品选购数量map
-  const countMap = useMemo(() => cartCountMap(), [cartList]);
+  const cartTotalCount = useCartStore(
+    useCallback((state) => state.cartTotalCount(), [cartList])
+  );
+  const cartTotalAmount = useCartStore(
+    useCallback((state) => state.cartTotalAmount(), [cartList])
+  );
+  const countMap = useCartStore(
+    useCallback((state) => state.cartCountMap(), [cartList])
+  );
 
   // 获取商品列表
   useEffect(() => {
@@ -35,14 +38,14 @@ function GoodsList() {
       </ul>
 
       <SubmitBar
-        price={cartTotalAmount() * 100}
+        price={cartTotalAmount * 100}
         button={
-          <Badge content={cartTotalCount() || null}>
+          <Badge content={cartTotalCount || null}>
             <Button
               className="rv-submit-bar__button"
               round
               type="primary"
-              disabled={!cartTotalCount()}
+              disabled={!cartTotalCount}
               onClick={() => {
                 navigate('/order/confirm');
               }}
