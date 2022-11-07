@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
 import { ProductCard } from 'react-vant';
 
-function OrderGoodsItem(props) {
-  const { item } = props;
-
+function OrderGoodsItem({ item }) {
   return (
     <ProductCard
       className="order-goods-item"
